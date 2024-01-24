@@ -2,6 +2,7 @@ public class Pikachu extends Pokemon{
 
     public Pikachu(){
         setHp(70);
+        setWeakness("Psychic");
     }
 
     public void quickAttack(Pokemon unfortunatePokemon){
