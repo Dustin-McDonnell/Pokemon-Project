@@ -10,10 +10,10 @@ public class Pokemon extends Card {
         hp = userInputHp;
     }
 
-    private String getType() {return type;}
-    private void setType(String userInputType) {type = userInputType;}
+    public String getType() {return type;}
+    public void setType(String userInputType) {type = userInputType;}
 
-    private String getStage() {return stage;}
-    private void setStage(String userInputStage) {stage = userInputStage;}
+    public String getStage() {return stage;}
+    public void setStage(String userInputStage) {stage = userInputStage;}
 
 }

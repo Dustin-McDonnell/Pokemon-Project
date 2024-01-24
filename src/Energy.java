@@ -1,6 +1,6 @@
 public class Energy extends Card{
     private String type;
 
-    private String getType(){return type;}
-    private void setType(String userInputType){type = userInputType;}
+    public String getType(){return type;}
+    public void setType(String userInputType){type = userInputType;}
 }
