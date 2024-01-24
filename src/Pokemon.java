@@ -1,6 +1,7 @@
 public class Pokemon extends Card {
     private int hp;
-    private String type;
+    private String type1;
+    private String type2;
     private String stage;
     private String weakness;
     private String resistance;
@@ -12,8 +13,11 @@ public class Pokemon extends Card {
         hp = userInputHp;
     }
 
-    public String getType() {return type;}
-    public void setType(String userInputType) {type = userInputType;}
+    public String getType1() {return type1;}
+    public void setType1(String userInputType1) {type1 = userInputType1;}
+
+    public String getType2() {return type2;}
+    public void setType2(String userInputType2) {type2 = userInputType2;}
 
     public String getStage() {return stage;}
     public void setStage(String userInputStage) {stage = userInputStage;}
