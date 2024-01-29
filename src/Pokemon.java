@@ -1,10 +1,42 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Pokemon extends Card {
+    //I want to try using an array list instead of having multiple type variables
+    //ArrayList is apparently mutable all the time, so I'm not sure how to go about this
     private int hp;
-    private String type1;
-    private String type2;
+    private ArrayList<String> type = new ArrayList<String>();
+    private ArrayList<String> weakness = new ArrayList<String>();
+    private ArrayList<String> resistance = new ArrayList<String>();
     private String stage;
-    private String weakness;
-    private String resistance;
+
+    public ArrayList<String> getType(){
+        ArrayList<String> copyType = new ArrayList<>(type);
+        return copyType;
+    }
+
+    public void setType(String userInputType){
+        type.add(userInputType);
+    }
+
+    public ArrayList<String> getResistance(){
+        ArrayList<String> copyResistance = new ArrayList<>(resistance);
+        return copyResistance;
+    }
+
+    public void setResistance(String userInputResistance){
+        resistance.add(userInputResistance);
+    }
+
+    public ArrayList<String> getWeakness(){
+        ArrayList<String> copyWeakness = new ArrayList<>(weakness);
+        return copyWeakness;
+    }
+
+    public void setWeakness(String userInputWeakness){
+        weakness.add(userInputWeakness);
+    }
 
     public int getHp(){
         return hp;
@@ -13,19 +45,7 @@ public class Pokemon extends Card {
         hp = userInputHp;
     }
 
-    public String getType1() {return type1;}
-    public void setType1(String userInputType1) {type1 = userInputType1;}
-
-    public String getType2() {return type2;}
-    public void setType2(String userInputType2) {type2 = userInputType2;}
-
     public String getStage() {return stage;}
     public void setStage(String userInputStage) {stage = userInputStage;}
-
-    public String getWeakness(){return weakness;}
-    public void setWeakness(String userInputWeakness) {weakness = userInputWeakness;}
-
-    public String getResistance(){return resistance;}
-    public void setResistance(String userInputResistance){resistance = userInputResistance;}
 
 }

@@ -7,8 +7,8 @@ public class TestExample {
         double meanResults = test.findMean(mySampleNumbersOdd);
         double medianResultsOdd = test.findMedian(mySampleNumbersOdd);
         double medianResultsEven = test.findMedian(mySampleNumbersEven);
-        double modeResultsOdd = test.findMode(mySampleNumbersOdd);
-        double modeResultsRepeat = test.findMode(mySampleNumbersMode);
+        Integer modeResultsOdd = test.findMode(mySampleNumbersOdd);
+        Integer modeResultsRepeat = test.findMode(mySampleNumbersMode);
         System.out.println("The mean for the odd array is: " + meanResults); 
         System.out.println("The median for the odd array is: " + medianResultsOdd);
         System.out.println("The median for the even array is: " + medianResultsEven);

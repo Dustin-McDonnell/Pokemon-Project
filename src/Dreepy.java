@@ -1,29 +1,23 @@
 public class Dreepy extends Pokemon {
     public Dreepy() {
         setHp(60);
-        setType1("Psychic");
         setStage("Basic");
         setWeakness("Darkness");
         setResistance("Fighting");
+        setType("Psychic");
     }
 
     public void quickAttack(Pokemon target) {
-        System.out.println("Dreepy use quick attack!");
-        int targetHp = target.getHp();
+        AttackSequence atk = new AttackSequence();
+        atk.moveBark("Dreepy", "Quick Attack");
         int damage = 10;
         //Coin flip to determine additional damage
         CoinFlip coin = new CoinFlip();
         if (coin.flip() == 1) {
+            System.out.println("+10 Damage");
             damage = damage + 10;
         }
         //Determining target weakness
-        if (target.getWeakness() == "Psychic"){
-            System.out.println("The enemy is weak to Psychic attacks! It's Super Effective!");
-            damage = damage * 2;
-        }
-        //final damage step
-        target.setHp(targetHp - damage);
-
-        System.out.println("The enemy is weak! They only have " + target.getHp() + " hp left.");
+        atk.damageCalculation(damage, "Psychic", target);
     }
 }

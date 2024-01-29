@@ -42,9 +42,9 @@ public double findMedian(int[] userInput){
     return median;
 }
 
-public int findMode(int[] userInput){
+public Integer findMode(int[] userInput){
     int highest = 1;
-    int mode = -1;
+    Integer mode = null;
 for (int i = 0; i < userInput.length; i++){
     int count = 0;
     for (int k = 0; k < userInput.length; k++){
@@ -58,12 +58,11 @@ for (int i = 0; i < userInput.length; i++){
         
     }
 }
-if (mode != -1){
+if (mode != null){
     return mode;
 }
 else{
-    System.out.println("If the mode is -1 there is no mode.");
-    return -1;
+    return mode;
 }
 }
 
