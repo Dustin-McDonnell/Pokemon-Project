@@ -1,4 +1,4 @@
-public class Dreepy extends Pokemon {
+public class Dreepy extends Pokemon implements Attackable{
     public Dreepy() {
         setHp(60);
         setStage("Basic");
@@ -7,10 +7,13 @@ public class Dreepy extends Pokemon {
         setType("Psychic");
     }
 
-    public void quickAttack(Pokemon target) {
+    @Override
+    //Quick Attack
+    public void attackOne(Pokemon target) {
         AttackSequence atk = new AttackSequence();
         atk.moveBark("Dreepy", "Quick Attack");
         int damage = 10;
+
         //Coin flip to determine additional damage
         CoinFlip coin = new CoinFlip();
         if (coin.flip() == 1) {
@@ -18,6 +21,11 @@ public class Dreepy extends Pokemon {
             damage = damage + 10;
         }
         //Determining target weakness
-        atk.damageCalculation(damage, "Psychic", target);
+        atk.damageCalculation(damage, getType() , target);
+    }
+
+    @Override
+    public void attackTwo(Pokemon target) {
+
     }
 }

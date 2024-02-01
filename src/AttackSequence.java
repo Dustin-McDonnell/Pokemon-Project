@@ -1,16 +1,21 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class AttackSequence {
-    public void damageCalculation(int damage, String attackType, Pokemon target){
-        if (target.getWeakness().contains(attackType)){
-            System.out.println("The enemy is weak to " + attackType +" attacks! It's Super Effective!");
+    public void damageCalculation(int damage, ArrayList<String> attackType, Pokemon target){
+        for (int i = 0; i < attackType.size(); i++){
+        if (target.getWeakness().contains(attackType.get(i))){
+            System.out.println("The enemy is weak to " + attackType.get(i) +" attacks! It's Super Effective!");
             damage = damage * 2;
         }
-        if (target.getResistance().contains(attackType)){
-            System.out.println("The enemy is resistant to " + attackType + " Attacks! -30 Damage!");
-            damage = damage - 30;
         }
-
+        //Two separate loops because Weakness is applied fist then resistance
+        for (int i = 0; i < attackType.size(); i++){
+            if (target.getResistance().contains(attackType.get(i))){
+                System.out.println("The enemy is resistant to " + attackType.get(i) + " Attacks! -30 Damage!");
+                damage = damage - 30;
+            }
+        }
         if(damage > 0) {
             target.setHp(target.getHp() - damage);
         }
