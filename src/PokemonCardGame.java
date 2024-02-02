@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Scanner;
+
 //60 card deck, in order to take a turn you need to have a basic pokemon in your hand
 //monte carlo simulation?
 //Let's write a monte carlo simulation. That means, using raw brute force, try to figure out
@@ -11,47 +13,42 @@ import java.util.Random;
 //Write a simulation that shows the expected mulligans at 1-60 pokemon in your deck.
 public class PokemonCardGame {
     //A deck of cards
-    private ArrayList<Card> deck1;//This is the constructors job = new Card[];
-    private ArrayList<Card> deck2;
+    private ArrayList<Card> deck;//This is the constructors job = new Card[];
     private ArrayList<Card> hand;
 
     public PokemonCardGame(){
-        deck1 = new ArrayList<Card>();
-        deck2 = new ArrayList<Card>();
+        deck = new ArrayList<Card>();
         hand = new ArrayList<Card>();
         for (int i = 0; i < 20; i++){
-            deck1.add(new Dreepy());
-            deck2.add(new Dreepy());
+            deck.add(new Dreepy());
         }
         int deckSize = 60;
         for(int i = 20; i < 40; i++){
-            deck1.add(new PsychicEnergy());
-            deck2.add(new PsychicEnergy());
+            deck.add(new PsychicEnergy());
         }
         for(int i = 40; i < 60; i++){
-            deck1.add(new ProfessorsResearch());
-            deck2.add(new ProfessorsResearch());
+            deck.add(new ProfessorsResearch());
         }
     }
 
     public PokemonCardGame(int pCards){
         System.out.println("Number of Pokemon Cards in deck: " + pCards);
-        deck1 = new ArrayList<Card>();
+        deck = new ArrayList<Card>();
         hand = new ArrayList<Card>();
         for (int i = 0; i < pCards; i++){
-            deck1.add(new Pokemon());
+            deck.add(new Pokemon());
         }
         int deckSize = 60;
         for(int i = pCards; i < deckSize; i++){
-            deck1.add(new Energy());
+            deck.add(new Energy());
         }
     }
 
     public Card drawCard(){
         Random rng = new Random();
-        int cardIndex = rng.nextInt(deck1.size()); //Find random card
-        Card drawnCard = deck1.get(cardIndex);
-        deck1.remove(cardIndex);
+        int cardIndex = rng.nextInt(deck.size()); //Find random card
+        Card drawnCard = deck.get(cardIndex);
+        deck.remove(cardIndex);
         return drawnCard;
     }
 
@@ -83,7 +80,7 @@ public class PokemonCardGame {
 
     public void returnHand(){
         for (int i = 0; i < hand.size(); i++){
-            deck1.add(hand.get(i));
+            deck.add(hand.get(i));
         }
         hand.clear();
     }
@@ -93,7 +90,7 @@ public class PokemonCardGame {
     }
 
     public void shuffleDeck(){
-        Collections.shuffle(deck1);
+        Collections.shuffle(deck);
     }
     public void shuffleDeck(ArrayList<Card> deck){
         Collections.shuffle(deck);
@@ -129,31 +126,40 @@ public void averageHandDraw(){
     System.out.println("Average amount of hands to draw for a pokemon after a thousand tests: " + counter/1000);
 }
 
-public void setUpGame(){
-    Player playerOne = new Player();
-    Player playerTwo = new Player();
-    playerOne.setDeck(deck1);
-    playerTwo.setDeck(deck2);
+public void setUpGame(Player player){
+    ArrayList<Card> copyDeck = new ArrayList<Card>(deck);
+    player.setDeck(copyDeck);
 
-    ArrayList<Card> playerDeck1 = playerOne.getDeck();
-    ArrayList<Card> playerDeck2 = playerTwo.getDeck();
+    ArrayList<Card> playerDeck = player.getDeck();
 
-    shuffleDeck(playerDeck1);
-    shuffleDeck(playerDeck2);
+    shuffleDeck(playerDeck);
 
-    drawPrizePile(playerOne.getPrizePile(), playerDeck1);
-    drawPrizePile(playerTwo.getPrizePile(), playerDeck2);
+    drawPrizePile(player.getPrizePile(), playerDeck);
 
-    drawHand(playerOne.getHand(), playerDeck1);
-    drawHand(playerTwo.getHand(), playerDeck2);
+    drawHand(player.getHand(), playerDeck);
+}
 
-    System.out.println("Player 1 Prize Pile: " + playerOne.getPrizePile());
-    System.out.println("Player 2 Prize Pile: " + playerTwo.getPrizePile());
-
+public void playerOneTurn(Player player){
+        Scanner scan = new Scanner(System.in);
+        ArrayList<Card> playerHand = player.getHand();
+        ArrayList<Card> playerDeck = player.getDeck();
+        playerHand.add(drawCard(playerDeck));
+        System.out.println("Enter a command Type 'Help' for options: ");
+        if (scan.nextLine().contentEquals("Help")){
+            System.out.println("This isn't done yet.");
+        }
 
 }
 
 public void runGame(){
+    Player player1 = new Player();
+    Player player2 = new Player();
+    setUpGame(player1);
+    setUpGame(player2);
+
+    playerOneTurn(player1);
+
+
 
 }
 

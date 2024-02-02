@@ -7,6 +7,24 @@ public class Player {
         private ArrayList<Card> hand = new ArrayList<>();
         private ArrayList<Card> discardPile = new ArrayList<>();
         private ArrayList<Card> prizePile = new ArrayList<>();
+        private ArrayList<Card> bench = new ArrayList<>();
+        private Pokemon active = new Pokemon();
+
+    public Pokemon getActive(){
+        return active;
+    }
+
+    public void setActive(Pokemon userInputActive){
+        active = userInputActive;
+    }
+
+    public ArrayList<Card> getBench(){
+        return bench;
+    }
+
+    public void setBench(ArrayList<Card> userInputBench){
+        bench = userInputBench;
+    }
 
     public ArrayList<Card> getDeck(){
         return deck;

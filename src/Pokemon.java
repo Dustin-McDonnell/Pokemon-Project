@@ -10,6 +10,15 @@ public class Pokemon extends Card {
     private ArrayList<String> weakness = new ArrayList<String>();
     private ArrayList<String> resistance = new ArrayList<String>();
     private String stage;
+    private ArrayList<String> energy = new ArrayList<>();
+
+    public ArrayList<String> getEnergy(){
+        return energy;
+    }
+
+    public void setEnergy(ArrayList<String> userInputEnergy){
+        energy = userInputEnergy;
+    }
 
     public ArrayList<String> getType(){
         ArrayList<String> copyType = new ArrayList<>(type);
