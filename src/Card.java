@@ -4,3 +4,5 @@ public class Card {
     public void activate(Player player){}
 
 }
+
+//this is natalie, adding a comment for github!
