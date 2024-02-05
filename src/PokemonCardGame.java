@@ -139,15 +139,53 @@ public void setUpGame(Player player){
     drawHand(player.getHand(), playerDeck);
 }
 
-public void playerOneTurn(Player player){
-        Scanner scan = new Scanner(System.in);
-        ArrayList<Card> playerHand = player.getHand();
-        ArrayList<Card> playerDeck = player.getDeck();
-        playerHand.add(drawCard(playerDeck));
+
+public void playerTurn(Player player){
+    ArrayList<Card> playerHand = player.getHand();
+    ArrayList<Card> playerDeck = player.getDeck();
+    Scanner scan = new Scanner(System.in);
+    Boolean turnStatus = true;
+
+    while (turnStatus) {
+        drawCard(playerDeck);
         System.out.println("Enter a command Type 'Help' for options: ");
-        if (scan.nextLine().contentEquals("Help")){
-            System.out.println("This isn't done yet.");
+        System.out.println("Current Hand: ");
+        for (int i = 0; i < playerHand.size(); i++) {
+            System.out.println(playerHand.get(i).getName() + " " + (i + 1));
         }
+
+        String input = scan.nextLine();
+
+        if (input.contentEquals("Help")) {
+            System.out.println("'Hand' to display your hand, Type the number of the card you want to activate.");
+        }
+
+        if(input.contentEquals("Bench")){
+            if(player.getBench().size() != 0){
+                System.out.println("Current Bench: ");
+                for (int i = 0; i < player.getBench().size(); i++) {
+                    System.out.println(player.getBench().get(i).getName() + " " + (i + 1));
+                }
+            }
+            else{
+                System.out.println("Your bench is empty.");
+            }
+        }
+
+        if (input.contentEquals("Activate")){
+            System.out.println("Enter the number position of the card you want to activate.");
+            int cardPosition = scan.nextInt() - 1;
+            Card chosenCard = playerHand.get(cardPosition);
+            playerHand.remove(cardPosition);
+            chosenCard.activate(player);
+        }
+        if (input.contentEquals("Active")){
+            System.out.println("Active Pokemon: ");
+            for (int i = 0; i < player.getActive().size(); i++) {
+                System.out.println(player.getActive().get(i).getName() + " " + (i + 1));
+            }
+        }
+    }
 
 }
 
@@ -157,7 +195,11 @@ public void runGame(){
     setUpGame(player1);
     setUpGame(player2);
 
-    playerOneTurn(player1);
+    while (!player1.getPrizePile().isEmpty() || !player2.getPrizePile().isEmpty()){
+        playerTurn(player1);
+        playerTurn(player2);
+    }
+
 
 
 

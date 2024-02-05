@@ -1,5 +1,6 @@
 public class Dreepy extends Pokemon implements Attackable{
     public Dreepy() {
+        setName("Dreepy");
         setHp(60);
         setStage("Basic");
         setWeakness("Darkness");
@@ -10,8 +11,8 @@ public class Dreepy extends Pokemon implements Attackable{
     @Override
     public void activate(Player player) {
         super.activate(player);
-        if (player.getActive() != null){
-            player.setActive(this);
+        if (player.getActive().size() == 0){
+            player.getActive().add(this);
         }
         else{
             if (player.getBench().size() < 5){

@@ -8,13 +8,13 @@ public class Player {
         private ArrayList<Card> discardPile = new ArrayList<>();
         private ArrayList<Card> prizePile = new ArrayList<>();
         private ArrayList<Card> bench = new ArrayList<>();
-        private Pokemon active = new Pokemon();
+        private ArrayList<Card> active = new ArrayList<>();
 
-    public Pokemon getActive(){
+    public ArrayList<Card> getActive(){
         return active;
     }
 
-    public void setActive(Pokemon userInputActive){
+    public void setActive(ArrayList<Card> userInputActive){
         active = userInputActive;
     }
 
