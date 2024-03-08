@@ -22,10 +22,10 @@ public class Potion extends Trainer {
                     else{
                         pokemon.setHp(pokemon.getHp() + 30);
                     }
-                    System.out.println("Your Parent.Pokemon was healed!");
+                    System.out.println("Pokemon was healed!");
                 }
                 else {
-                System.out.println("Your Parent.Pokemon didn't need healing!");
+                System.out.println("Pokemon didn't need healing!");
             }
         }
         else{
