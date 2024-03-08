@@ -245,7 +245,7 @@ public class StdLibrary {
 
     public double negativeBinomialProbabilityDistribution(double y, double r, double p, double q){
         Math.pow(p,r);
-        double result = combinations(y,r) * Math.pow(p,r) * Math.pow(q,(y-r));
+        double result = combinations(y-1,r-1) * Math.pow(p,r) * Math.pow(q,(y-r));
         return result;
     }
 

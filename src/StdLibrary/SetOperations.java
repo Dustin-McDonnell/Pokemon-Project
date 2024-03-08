@@ -7,6 +7,7 @@ public class SetOperations {
 
     //https://www.tutorialspoint.com/java/java_generics.htm This is where I learned about generics
     //This seems horribly inefficient
+    //Union Set
     public <T, K> void union(ArrayList<T> set, ArrayList<K> subSet) {
         //Remove Duplicates
         for (int i = 0; i < subSet.size(); i++) {
@@ -24,6 +25,7 @@ public class SetOperations {
         System.out.println("Union of set and subset, not sorted: " + set);
     }
 
+    //Complement Set
     public <T, K> ArrayList<T> complement(ArrayList<T> set, ArrayList<K> subSet) {
         //Remove Duplicates
         for (int i = 0; i < subSet.size(); i++) {
@@ -37,6 +39,7 @@ public class SetOperations {
         return set;
     }
 
+    //Intersection Set
     public <T, K> void intersection(ArrayList<T> set, ArrayList<K> subSet) {
         //Remove Duplicates
         ArrayList<T> intersectSet = new ArrayList<T>();
