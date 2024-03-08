@@ -2,6 +2,7 @@ package Pokemon;
 
 import Parent.Pokemon;
 
+//Pikachu Pokemon, unimplemented
 public class Pikachu extends Pokemon {
 
     public Pikachu(){

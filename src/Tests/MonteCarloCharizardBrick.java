@@ -1,36 +1,44 @@
 package Tests;
 import Parent.*;
 import TrainerCards.RareCandy;
+import java.util.ArrayList;
 
+
+//Monte Carlo to check for the amount of rare candies needed in a deck to not 'brick'
 public class MonteCarloCharizardBrick {
     public void brickChance(int rareCandy){
-        Player player1 = new Player();
-        Player player2 = new Player();
+        MonteCarloEngine test = new MonteCarloEngine(rareCandy);
 
         double bricked = 0;
+        double hasCandy = 0;
+        double hasPokemon = 0;
+        ArrayList<Card> hand = test.getHand();
+        ArrayList<Card> prizePile = test.getPrizePile();
         int rareCandyCount = 0;
 
-            for(int i = 0; i < 1000; i++) {
-                PokemonCardGame test = new PokemonCardGame(rareCandy);
-                test.setUpGame(player1, player2);
-
-                if (test.evaluateHandContainsBasic(player1)) {
-                    for (int j = 0; j < player1.getPrizePile().size(); j++) {
-                        Card card = player1.getPrizePile().get(j);
-                        if (card instanceof RareCandy){
-                            rareCandyCount ++;
-                        }
+        for(int j = 0; j <1000000; j++) {
+            test.drawHand();
+            test.drawPrizePile();
+            if (test.evaluateOpeningHand()) {
+                //P(B)=A hand containing a pokemon
+                hasPokemon ++;
+                for (int i = 0; i < prizePile.size(); i++) {
+                    if (prizePile.get(i) instanceof RareCandy) {
+                        rareCandyCount++;
                     }
                 }
                 if (rareCandyCount == rareCandy) {
-                    bricked = bricked + 1;
+                    //P(A intersect B)= All rare Candies in prize pile and has a pokemon in opening hand
+                    bricked++;
                 }
-                System.out.println(rareCandyCount);
-                rareCandyCount = 0;
             }
+            test.returnHand();
+            test.returnPrizePile();
+            test.shuffleDeck();
+            rareCandyCount = 0;
+        }
 
-        //double brickChance = bricked/1000000;
-        //System.out.println("Number of Rare Candy in Deck: " + (rareCandy + 1));
-        //System.out.println("Brick chance: " + brickChance);
+        System.out.println("Rare Candy in Deck: " + rareCandy);
+        System.out.println("Percent chance of being bricked:" + bricked/hasPokemon);
     }
 }

@@ -1,10 +1,10 @@
 package Parent;
 
-import Parent.Pokemon;
-
 import java.util.ArrayList;
 import java.util.Random;
 
+//Calculates the damage to the selected attack compares the damage type against resistance
+//and weaknesses to alter damage
 public class AttackSequence {
     public void damageCalculation(int damage, ArrayList<String> attackType, Pokemon target){
         for (int i = 0; i < attackType.size(); i++){
@@ -26,6 +26,7 @@ public class AttackSequence {
         System.out.println("The enemy is weak! They only have " + target.getHp() + " hp left.");
     }
 
+    //Randomly chooses a phrase to use with the Attack chosen for flavor
     public void moveBark(String pokemon, String move){
         Random rand = new Random();
         int rng = rand.nextInt(3);

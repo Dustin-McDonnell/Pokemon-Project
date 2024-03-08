@@ -6,6 +6,10 @@ import Parent.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Creates a secondary Array of all the Pokemon in the deck and allows the active player to choose
+//one to add to their hand. I lost the implementation that was written in class, so I hope this isn't too
+//offensive to the eye.
+
 public class NestBall extends Trainer {
     public NestBall(){
         setName("Nest Ball");

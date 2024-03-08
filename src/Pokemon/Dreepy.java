@@ -1,6 +1,7 @@
 package Pokemon;
 import Parent.*;
 
+//Dreepy Pokemon, contains its attributes and the Quick Attack which utilizes the coin toss function for added damage
 public class Dreepy extends Pokemon implements Attackable {
     public Dreepy() {
         setName("Dreepy");
@@ -31,7 +32,7 @@ public class Dreepy extends Pokemon implements Attackable {
     //Quick Attack
     public void attackOne(Pokemon target) {
         AttackSequence atk = new AttackSequence();
-        atk.moveBark("Parent.Pokemon.Dreepy", "Quick Attack");
+        atk.moveBark("Dreepy", "Quick Attack");
         int damage = 10;
 
         //Coin flip to determine additional damage

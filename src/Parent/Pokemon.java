@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Pokemon extends Card {
-    //I want to try using an array list instead of having multiple type variables
-    //ArrayList is apparently mutable all the time, so I'm not sure how to go about this
+
+
+    //Pokemon class with the variables that apply to all Pokemon, along with the getters and setters
     private int hp;
     private int maxHp;
     private ArrayList<String> type = new ArrayList<String>();

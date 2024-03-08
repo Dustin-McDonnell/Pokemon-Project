@@ -2,6 +2,7 @@ package TrainerCards;
 
 import Parent.*;
 
+//Discards the active Players Hand then draws 7 cards.
 public class ProfessorsResearch extends Trainer {
     public ProfessorsResearch(){
         setName("Professor's Research");

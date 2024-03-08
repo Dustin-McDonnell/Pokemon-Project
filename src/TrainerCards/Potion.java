@@ -2,6 +2,9 @@ package TrainerCards;
 
 import Parent.*;
 
+//Heals the active Pokemon up to 30 hp, returns that the Pokemon did not need healing otherwise
+//Lets you know if you do not currently have an active Pokemon
+
 public class Potion extends Trainer {
     public Potion(){
         setName("Potion");

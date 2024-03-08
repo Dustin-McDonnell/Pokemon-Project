@@ -1,7 +1,6 @@
 package Parent;
 
-import Parent.Card;
-
+//Energy Type
 public class Energy extends Card {
     private String type;
 

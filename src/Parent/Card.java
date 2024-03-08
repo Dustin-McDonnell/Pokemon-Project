@@ -1,7 +1,6 @@
 package Parent;
 
-import Parent.Pokemon;
-
+//Card Class, with the activate method
 public class Card implements Attackable {
     private String name;
 

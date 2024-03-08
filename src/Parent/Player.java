@@ -1,9 +1,8 @@
 package Parent;
-
-import Parent.Card;
-
 import java.util.ArrayList;
 
+
+//Player class with Getters and Setters for the variables
 public class Player {
         private ArrayList<Card> deck = new ArrayList<>();
         private ArrayList<Card> hand = new ArrayList<>();
@@ -59,9 +58,3 @@ public class Player {
         prizePile = userInputPrize;
     }
 }
-
-//Deck has 20-20-20 ratio
-//Hand stats at 7 cards, draw one each turn
-//Prize Pile Starts at 6 each pokemon knock out put on in your hand
-//Discard pile all played cards go here
-//save deck as csv then load as text

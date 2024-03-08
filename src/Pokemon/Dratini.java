@@ -5,6 +5,7 @@ import Parent.Attackable;
 import Parent.Player;
 import Parent.Pokemon;
 
+//Dratini with its attributes, contains the activate method like all Pokemon and the Pound Attack
 public class Dratini extends Pokemon implements Attackable {
     public Dratini(){
         setName("Dratini");
@@ -29,7 +30,7 @@ public class Dratini extends Pokemon implements Attackable {
     @Override
     public void attackOne(Pokemon target) {
         AttackSequence atk = new AttackSequence();
-        atk.moveBark("Pokemon.Dratini", "Pound");
+        atk.moveBark("Dratini", "Pound");
         int damage = 10;
 
         atk.damageCalculation(damage, getType(), target);

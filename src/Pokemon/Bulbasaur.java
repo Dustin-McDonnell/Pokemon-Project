@@ -2,6 +2,7 @@ package Pokemon;
 
 import Parent.Pokemon;
 
+//Bulbasaur, wrote this and then forgot about it, never used, but I thought leech seed was cool.
 public class Bulbasaur extends Pokemon{
 
     public Bulbasaur(){
