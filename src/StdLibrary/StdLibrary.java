@@ -243,6 +243,22 @@ public class StdLibrary {
         return result;
     }
 
+    public double negativeBinomialProbabilityDistribution(double y, double r, double p, double q){
+        Math.pow(p,r);
+        double result = combinations(y,r) * Math.pow(p,r) * Math.pow(q,(y-r));
+        return result;
+    }
+
+    public double expectedNegativeBinomialProbabilityDistribution(double r, double p){
+        double result = r/p;
+        return result;
+    }
+
+    public double varianceNegativeBinomialProbabilityDistribution(double r, double p){
+        double result = (r*(1-p))/Math.pow(p,2);
+        return result;
+    }
+
     }
 
 
