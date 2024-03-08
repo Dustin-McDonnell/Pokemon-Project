@@ -2,6 +2,7 @@ package Pokemon;
 import Parent.*;
 
 //Dreepy Pokemon, contains its attributes and the Quick Attack which utilizes the coin toss function for added damage
+//Hp set to 10 for easy Testing
 public class Dreepy extends Pokemon implements Attackable {
     public Dreepy() {
         setName("Dreepy");

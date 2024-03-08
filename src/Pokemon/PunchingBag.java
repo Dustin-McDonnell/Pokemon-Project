@@ -6,6 +6,7 @@ import Parent.Player;
 import Parent.Pokemon;
 
 //Punching Bag Pokemon with all types,weaknesses, and resistances to allow for easy testing
+//Hp set to 10 for easy testing
 //Gave it the Gnaw attack
 public class PunchingBag extends Pokemon implements Attackable {
     public PunchingBag(){

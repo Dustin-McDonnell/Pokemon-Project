@@ -6,6 +6,7 @@ import Parent.Player;
 import Parent.Pokemon;
 
 //Dratini with its attributes, contains the activate method like all Pokemon and the Pound Attack
+//HP set to 10 for easy testing
 public class Dratini extends Pokemon implements Attackable {
     public Dratini(){
         setName("Dratini");
