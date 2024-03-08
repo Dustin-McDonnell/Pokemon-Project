@@ -7,7 +7,7 @@ import Parent.Pokemon;
 
 public class Dratini extends Pokemon implements Attackable {
     public Dratini(){
-        setName("Pokemon.Dratini");
+        setName("Dratini");
         setResistance("Psychic");
         setHp(10);
         setMaxHp(40);

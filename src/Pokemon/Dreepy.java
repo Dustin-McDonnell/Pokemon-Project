@@ -3,7 +3,7 @@ import Parent.*;
 
 public class Dreepy extends Pokemon implements Attackable {
     public Dreepy() {
-        setName("Parent.Pokemon.Dreepy");
+        setName("Dreepy");
         setHp(10);
         setMaxHp(40);
         setStage("Basic");

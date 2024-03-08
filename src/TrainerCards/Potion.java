@@ -4,7 +4,7 @@ import Parent.*;
 
 public class Potion extends Trainer {
     public Potion(){
-        setName("TrainerCards.Potion");
+        setName("Potion");
     }
 
     @Override
