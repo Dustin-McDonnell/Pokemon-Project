@@ -28,8 +28,8 @@ public class NestBall extends Trainer {
             System.out.println("Enter the position number of the pokemon you want added to your hand.");
         int chosenCard = scan.nextInt();
         player.getHand().add(cards.get(chosenCard - 1));
+        System.out.println(player.getHand().getLast().getName() + " added!");
         cards.remove(chosenCard - 1);
-        System.out.println(cards.get(chosenCard-1).getName() + " added!");
         }
     }
 
