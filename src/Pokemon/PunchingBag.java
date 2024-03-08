@@ -63,7 +63,7 @@ public class PunchingBag extends Pokemon implements Attackable {
     @Override
     public void attackOne(Pokemon target) {
         AttackSequence atk = new AttackSequence();
-        atk.moveBark("Punching Bad", "Gnaw");
+        atk.moveBark("Punching Bag", "Gnaw");
         int damage = 15;
 
         atk.damageCalculation(damage, getType(), target);
